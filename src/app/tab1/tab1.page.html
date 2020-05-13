@@ -1,10 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      EMI DETAILS
     </ion-title>
   </ion-toolbar>
 </ion-header>
+
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
@@ -12,6 +13,35 @@
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-card>
+    <ion-card-content>
+      <form (ngSubmit)="logForm()">
+        <ion-item>
+          <ion-label position="floating">Loan Amount</ion-label>
+          <ion-input type="number" [(ngModel)]="txtloanamt" name="txtloanamt"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Interest % (Annum)</ion-label>
+          <ion-input type="number" [(ngModel)]="txtint" name="txtint"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Loan Tenure (Month)</ion-label>
+          <ion-input type="number" [(ngModel)]="txtmonth" name="txtmonth"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Fees & Charges</ion-label>
+          <ion-input type="number" [(ngModel)]="txtfees" name="txtfees"></ion-input>
+        </ion-item>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+        <ion-item>
+          <ion-label position="floating">Tax %</ion-label>
+          <ion-input type="number" [(ngModel)]="txttax" name="txttax"></ion-input>
+        </ion-item>
+        <button ion-button type="submit" block>Calculate</button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+
+
 </ion-content>

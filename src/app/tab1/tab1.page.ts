@@ -6,7 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+  txtloanamt = 0;
+  txtint = 0;
+  txtmonth = 0;
+  txtfees = 0;
+  txttax = 0;
+  constructor() { }
 
-  constructor() {}
+
+  logForm() {
+    console.log('Hi Got it');
+  }
+
 
 }
