@@ -2,7 +2,7 @@
 <widget id="io.techgenius.emiCALC" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>emiCALC</name>
     <description>emi Calculator</description>
-    <author email="tmlslvn6@gmail.com" href="http://ionicframework.com/">Tamil Tech Genius</author>
+    <author email="tmlslvn6@gmail.com" href="https://tamiltech.co.in/">Tamil Tech Genius</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
