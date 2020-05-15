@@ -1,5 +1,5 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header [translucent]="true" color="success">
+  <ion-toolbar color="success">
     <ion-title>
       EMI DETAILS
     </ion-title>
@@ -18,30 +18,87 @@
       <form (ngSubmit)="logForm()">
         <ion-item>
           <ion-label position="floating">Loan Amount</ion-label>
-          <ion-input type="number" [(ngModel)]="txtloanamt" name="txtloanamt"></ion-input>
+          <ion-input type="number" [(ngModel)]="indata.txtloanamt" name="txtloanamt"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">Interest % (Annum)</ion-label>
-          <ion-input type="number" [(ngModel)]="txtint" name="txtint"></ion-input>
+          <ion-input type="number" [(ngModel)]="indata.txtint" name="txtint"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">Loan Tenure (Month)</ion-label>
-          <ion-input type="number" [(ngModel)]="txtmonth" name="txtmonth"></ion-input>
+          <ion-input type="number" [(ngModel)]="indata.txtmonth" name="txtmonth"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">Fees & Charges</ion-label>
-          <ion-input type="number" [(ngModel)]="txtfees" name="txtfees"></ion-input>
+          <ion-input type="number" [(ngModel)]="indata.txtfees" name="txtfees"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label position="floating">Tax %</ion-label>
-          <ion-input type="number" [(ngModel)]="txttax" name="txttax"></ion-input>
+          <ion-input type="number" [(ngModel)]="indata.txttax" name="txttax"></ion-input>
         </ion-item>
-        <button ion-button type="submit" block>Calculate</button>
+        <ion-button type="submit" color="success" block>Calculate</ion-button>
       </form>
     </ion-card-content>
   </ion-card>
 
+  <ion-card *ngIf="iscalc">
+    <ion-card-header style="text-align:center;font-size:large;" color="success">
+      Payment Summary
+    </ion-card-header>
 
+    <ion-row no-padding style="text-align:left;font-size:large;">
+      <ion-col>
+        Loan Principal
+      </ion-col>
+
+      <ion-col text-right style="text-align:right;font-size:large;">
+        {{ resultLoan }}
+      </ion-col>
+    </ion-row>
+
+    <ion-row no-padding style="text-align:left;font-size:large;">
+      <ion-col>
+        Loan EMI (per month)
+      </ion-col>
+
+      <ion-col text-right style="text-align:right;font-size:large;">
+        {{ resultEMI }}
+      </ion-col>
+    </ion-row>
+
+    <ion-row no-padding style="text-align:left;font-size:large;color: red;">
+      <ion-col>
+        Total Interest
+      </ion-col>
+
+      <ion-col text-right style="text-align:right;font-size:large;">
+        {{ resultExtra }}
+      </ion-col>
+    </ion-row>
+
+    <ion-row no-padding style="text-align:left;font-size:large;">
+      <ion-col>
+        Fees & other Charges
+      </ion-col>
+
+      <ion-col text-right style="text-align:right;font-size:large;color: red;">
+        {{ resultFees }}
+      </ion-col>
+    </ion-row>
+
+    <ion-row no-padding style="text-align:left;font-size: large;font-weight: bold;">
+      <ion-col>
+        Total Repayment
+      </ion-col>
+
+      <ion-col text-right style="text-align:right;font-size: large;font-weight: bold;">
+        {{ resultRepay }}
+      </ion-col>
+    </ion-row>
+
+
+
+  </ion-card>
 
 </ion-content>
