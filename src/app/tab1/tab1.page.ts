@@ -42,12 +42,11 @@ export class Tab1Page {
 
   logForm() {
     console.log(this.indata);
-
-    if (Number(this.indata.txtint) <= 0) {
-      this.presentToast('Interest must be greater than zero');
-      return false;
-    } else if (Number(this.indata.txtloanamt) <= 0) {
+    if (Number(this.indata.txtloanamt) <= 0) {
       this.presentToast('Loan Amount must be greater than zero');
+      return false;
+    } else if (Number(this.indata.txtint) <= 0) {
+      this.presentToast('Interest must be greater than zero');
       return false;
     } else if (Number(this.indata.txtmonth) <= 0) {
       this.presentToast('Loan Tenure must be greater than zero');

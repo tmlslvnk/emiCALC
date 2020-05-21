@@ -15,33 +15,98 @@
   </ion-header>
   <ion-card>
     <ion-card-content>
-      <form (ngSubmit)="logForm()">
-        <!-- <ion-item>
-          <ion-label position="floating">Loan Amount</ion-label>
-          <ion-input type="number" [(ngModel)]="indata.txtloanamt" name="txtloanamt"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Interest % (Annum)</ion-label>
-          <ion-input type="number" [(ngModel)]="indata.txtint" name="txtint"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Loan Tenure (Month)</ion-label>
-          <ion-input type="number" [(ngModel)]="indata.txtmonth" name="txtmonth"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Fees & Charges</ion-label>
-          <ion-input type="number" [(ngModel)]="indata.txtfees" name="txtfees"></ion-input>
-        </ion-item>
+
+      <form (ngSubmit)="datesubmit()">
 
         <ion-item>
-          <ion-label position="floating">Tax %</ion-label>
-          <ion-input type="number" [(ngModel)]="indata.txttax" name="txttax"></ion-input>
+          <ion-label position="floating">From Date</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" max="2050" [(ngModel)]="indata.frmDate" name="frmDate">
+          </ion-datetime>
         </ion-item>
-        <ion-button type="submit" color="success" block>Calculate</ion-button> -->
+        <ion-item>
+          <ion-label position="floating">To Date</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" max="2050" [(ngModel)]="indata.toDate" name="toDate">
+          </ion-datetime>
+        </ion-item>
+        <ion-button type=" submit" color="success" block>Calculate</ion-button>
       </form>
     </ion-card-content>
   </ion-card>
 
+  <ion-card *ngIf="iscalc">
+    <ion-card-header style="text-align:center;font-size:large;" color="success">
+      Date Difference
+    </ion-card-header>
+    <ion-row no-padding style="text-align:center;font-size:large;font-style:italic;">
+      <ion-col>
+        Years
+      </ion-col>
+      <ion-col>
+        Months
+      </ion-col>
+      <ion-col>
+        Days
+      </ion-col>
+    </ion-row>
+    <ion-row no-padding style="text-align:center;font-size:large;font-weight:bold;">
+      <ion-col>
+        {{resultyears}}
+      </ion-col>
+      <ion-col>
+        {{resultmonths}}
+      </ion-col>
+      <ion-col>
+        {{resultdays}}
+      </ion-col>
+    </ion-row>
 
+    <ion-card-header style="text-align:center;font-size:large;" color="success">
+      Summary
+    </ion-card-header>
 
+    <ion-row no-padding style="text-align:center;font-size:large;font-style:italic;">
+      <ion-col>
+        Years
+      </ion-col>
+      <ion-col>
+        Months
+      </ion-col>
+      <ion-col>
+        Weeks
+      </ion-col>
+    </ion-row>
+    <ion-row no-padding style="text-align:center;font-size:large;font-weight:bold;">
+      <ion-col>
+        {{ryears}}
+      </ion-col>
+      <ion-col>
+        {{rmonths}}
+      </ion-col>
+      <ion-col>
+        {{rweeks}}
+      </ion-col>
+    </ion-row>
+    <ion-row no-padding style="text-align:center;font-size:large;font-style:italic;">
+      <ion-col>
+        Days
+      </ion-col>
+      <ion-col>
+        Hours
+      </ion-col>
+      <ion-col>
+        Minutes
+      </ion-col>
+    </ion-row>
+    <ion-row no-padding style="text-align:center;font-size:large;font-weight:bold;">
+      <ion-col>
+        {{rdays}}
+      </ion-col>
+      <ion-col>
+        {{rhours}}
+      </ion-col>
+      <ion-col>
+        {{rminutes}}
+      </ion-col>
+    </ion-row>
+  </ion-card>
 </ion-content>
