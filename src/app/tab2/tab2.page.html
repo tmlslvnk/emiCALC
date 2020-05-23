@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="success">
     <ion-title>
       Payment Breakup
     </ion-title>
@@ -12,15 +12,66 @@
       <ion-title size="large">Tab 2</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle></ion-card-subtitle>
-      <ion-card-title>Breakup will add soon</ion-card-title>
-    </ion-card-header>
 
-    <ion-card-content>
+  <ng-template ngFor let-item [ngForOf]="payarray">
+    <ion-card>
+      <ion-row no-padding style="text-align:left;font-size:large;background-color:#2dd36f;color: #ffffff;">
+        <ion-col>
+          EMI
+        </ion-col>
 
-    </ion-card-content>
-  </ion-card>
+        <ion-col text-right style="text-align:right;font-size:large;background-color:#2dd36f;color: #ffffff;">
+          {{ item.emicount }}
+        </ion-col>
+      </ion-row>
+
+      <ion-row no-padding style="text-align:left;font-size:large;">
+        <ion-col>
+          Loan Principal
+        </ion-col>
+
+        <ion-col text-right style="text-align:right;font-size:large;">
+          {{ item.principal }}
+        </ion-col>
+      </ion-row>
+
+      <ion-row no-padding style="text-align:left;font-size:large;">
+        <ion-col>
+          Loan Interest
+        </ion-col>
+
+        <ion-col text-right style="text-align:right;font-size:large;">
+          {{ item.interest }}
+        </ion-col>
+      </ion-row>
+      <ion-row no-padding style="text-align:left;font-size:large;">
+        <ion-col>
+          Total Payment
+        </ion-col>
+
+        <ion-col text-right style="text-align:right;font-size:large;">
+          {{ item.totalpay }}
+        </ion-col>
+      </ion-row>
+      <ion-row no-padding style="text-align:left;font-size:large;">
+        <ion-col>
+          Loan Balance
+        </ion-col>
+
+        <ion-col text-right style="text-align:right;font-size:large;">
+          {{ item.balance }}
+        </ion-col>
+      </ion-row>
+      <ion-row no-padding style="text-align:left;font-size:large;">
+        <ion-col>
+          Loan Paid %
+        </ion-col>
+
+        <ion-col text-right style="text-align:right;font-size:large;">
+          {{ item.loadpaid }}
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ng-template>
 
 </ion-content>

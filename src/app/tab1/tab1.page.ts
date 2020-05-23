@@ -1,3 +1,4 @@
+import { Shared } from './../shared';
 import { Component } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 
@@ -27,7 +28,7 @@ export class Tab1Page {
   resultExtra: any;
   resultFees: any;
   resultRepay: any;
-  constructor(public toastController: ToastController) {
+  constructor(public toastController: ToastController, private shared: Shared) {
 
   }
 
@@ -66,6 +67,9 @@ export class Tab1Page {
     this.resultFees = Number((((this.resultExtra + Number(this.indata.txtfees)) / 100) * Number(this.indata.txttax)).toFixed(2));
     this.resultRepay = (this.principal + this.resultExtra + this.resultFees + Number(this.indata.txtfees)).toFixed(2);
     this.iscalc = true;
+
+    const sharedate = { sterms: this.nterms, srate: this.rate, semi: this.resultEMI, sLoan: this.resultLoan };
+    this.shared.setemiDtl(sharedate);
   }
 
 
