@@ -1,0 +1,111 @@
+<ion-header [translucent]="true" color="success">
+  <ion-toolbar color="success">
+    <ion-title>
+      Currency
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 5</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-label color="light" style="text-align: center;">Provided by exchangeratesapi ({{ lastupdated }})
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>From Currency</ion-label>
+        <ion-select value="INR" [(ngModel)]="currencyfrom" (ionChange)="onSelectChangeFrom($event)" interface="popover">
+          <ion-select-option value="AUD">Australian dollar </ion-select-option>
+          <ion-select-option value="BRL">Brazilian real </ion-select-option>
+          <ion-select-option value="BGN">Bulgarian lev </ion-select-option>
+          <ion-select-option value="CAD">Canadian dollar </ion-select-option>
+          <ion-select-option value="CNY">Chinese yuan renminbi </ion-select-option>
+          <ion-select-option value="HRK">Croatian kuna </ion-select-option>
+          <ion-select-option value="CZK">Czech koruna </ion-select-option>
+          <ion-select-option value="EUR">Euro EUR </ion-select-option>
+          <ion-select-option value="DKK">Danish krone </ion-select-option>
+          <ion-select-option value="HKD">Hong Kong dollar </ion-select-option>
+          <ion-select-option value="HUF">Hungarian forint </ion-select-option>
+          <ion-select-option value="ISK">Icelandic krona </ion-select-option>
+          <ion-select-option value="INR">Indian rupee </ion-select-option>
+          <ion-select-option value="IDR">Indonesian rupiah </ion-select-option>
+          <ion-select-option value="ILS">Israeli shekel </ion-select-option>
+          <ion-select-option value="JPY">Japanese yen </ion-select-option>
+          <ion-select-option value="MYR">Malaysian ringgit </ion-select-option>
+          <ion-select-option value="MXN">Mexican peso </ion-select-option>
+          <ion-select-option value="NZD">New Zealand dollar </ion-select-option>
+          <ion-select-option value="NOK">Norwegian krone </ion-select-option>
+          <ion-select-option value="PHP">Philippine peso </ion-select-option>
+          <ion-select-option value="PLN">Polish zloty </ion-select-option>
+          <ion-select-option value="GBP">Pound sterling </ion-select-option>
+          <ion-select-option value="RON">Romanian leu </ion-select-option>
+          <ion-select-option value="RUB">Russian rouble </ion-select-option>
+          <ion-select-option value="SGD">Singapore dollar </ion-select-option>
+          <ion-select-option value="ZAR">South African rand </ion-select-option>
+          <ion-select-option value="KRW">South Korean won </ion-select-option>
+          <ion-select-option value="SEK">Swedish krona </ion-select-option>
+          <ion-select-option value="CHF">Swiss franc </ion-select-option>
+          <ion-select-option value="THB">Thai baht </ion-select-option>
+          <ion-select-option value="TRY">Turkish lira </ion-select-option>
+          <ion-select-option value="USD">US dollar </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">From Value</ion-label>
+        <ion-input type="number" [(ngModel)]="txtfrom" name="txtfrom" (keypress)=onChangeFrom($event)
+          (keyup)=onChangeFrom($event)></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>To</ion-label>
+        <ion-select value="USD" [(ngModel)]="currencyto" (ionChange)="onSelectChangeTo($event)" interface="popover">
+          <ion-select-option value="AUD">Australian dollar </ion-select-option>
+          <ion-select-option value="BRL">Brazilian real </ion-select-option>
+          <ion-select-option value="BGN">Bulgarian lev </ion-select-option>
+          <ion-select-option value="CAD">Canadian dollar </ion-select-option>
+          <ion-select-option value="CNY">Chinese yuan renminbi </ion-select-option>
+          <ion-select-option value="HRK">Croatian kuna </ion-select-option>
+          <ion-select-option value="CZK">Czech koruna </ion-select-option>
+          <ion-select-option value="DKK">Danish krone </ion-select-option>
+          <ion-select-option value="EUR">Euro EUR </ion-select-option>
+          <ion-select-option value="HKD">Hong Kong dollar </ion-select-option>
+          <ion-select-option value="HUF">Hungarian forint </ion-select-option>
+          <ion-select-option value="ISK">Icelandic krona </ion-select-option>
+          <ion-select-option value="INR">Indian rupee </ion-select-option>
+          <ion-select-option value="IDR">Indonesian rupiah </ion-select-option>
+          <ion-select-option value="ILS">Israeli shekel </ion-select-option>
+          <ion-select-option value="JPY">Japanese yen </ion-select-option>
+          <ion-select-option value="MYR">Malaysian ringgit </ion-select-option>
+          <ion-select-option value="MXN">Mexican peso </ion-select-option>
+          <ion-select-option value="NZD">New Zealand dollar </ion-select-option>
+          <ion-select-option value="NOK">Norwegian krone </ion-select-option>
+          <ion-select-option value="PHP">Philippine peso </ion-select-option>
+          <ion-select-option value="PLN">Polish zloty </ion-select-option>
+          <ion-select-option value="GBP">Pound sterling </ion-select-option>
+          <ion-select-option value="RON">Romanian leu </ion-select-option>
+          <ion-select-option value="RUB">Russian rouble </ion-select-option>
+          <ion-select-option value="SGD">Singapore dollar </ion-select-option>
+          <ion-select-option value="ZAR">South African rand </ion-select-option>
+          <ion-select-option value="KRW">South Korean won </ion-select-option>
+          <ion-select-option value="SEK">Swedish krona </ion-select-option>
+          <ion-select-option value="CHF">Swiss franc </ion-select-option>
+          <ion-select-option value="THB">Thai baht </ion-select-option>
+          <ion-select-option value="TRY">Turkish lira </ion-select-option>
+          <ion-select-option value="USD">US dollar </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">To Value</ion-label>
+        <ion-input type="number" [(ngModel)]="txtto" name="txtto" (keypress)=onChangeTo($event)
+          (keyup)=onChangeTo($event)></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
