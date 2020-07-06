@@ -6,6 +6,8 @@ export interface PayBreak {
   principal: any;
   interest: any;
   totalpay: any;
+  interesttax: any;
+  emiamount: any;
   balance: any;
   loadpaid: any;
 }
@@ -37,6 +39,9 @@ export class Tab2Page {
         paybreak.interest = calcinterest;
         newLoanAmount = Number(Number(newLoanAmount - paybreak.principal).toFixed(2));
         paybreak.totalpay = emidtl.semi;
+        const interesttax = (Number(paybreak.interest) / 100) * Number(emidtl.stax);
+        paybreak.interesttax = Number(interesttax).toFixed(2);
+        paybreak.emiamount = (Number(paybreak.totalpay)  + Number(paybreak.interesttax)).toFixed(2);
         paybreak.balance = newLoanAmount;
         paybreak.loadpaid = Number(100 - ((newLoanAmount / emidtl.sLoan) * 100)).toFixed(2);
         this.payarray.push(paybreak);

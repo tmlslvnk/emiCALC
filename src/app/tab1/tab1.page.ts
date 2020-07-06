@@ -28,6 +28,7 @@ export class Tab1Page {
   resultExtra: any;
   resultFees: any;
   resultRepay: any;
+  resultExtraPay: any;
   constructor(public toastController: ToastController, private shared: Shared) {
 
   }
@@ -66,9 +67,10 @@ export class Tab1Page {
     this.resultExtra = Number(((this.resultEMI * this.nterms) - this.principal).toFixed(2));
     this.resultFees = Number((((this.resultExtra + Number(this.indata.txtfees)) / 100) * Number(this.indata.txttax)).toFixed(2));
     this.resultRepay = (this.principal + this.resultExtra + this.resultFees + Number(this.indata.txtfees)).toFixed(2);
+    this.resultExtraPay = (Number(this.resultRepay) - Number(this.resultLoan)).toFixed(2);
     this.iscalc = true;
 
-    const sharedate = { sterms: this.nterms, srate: this.rate, semi: this.resultEMI, sLoan: this.resultLoan };
+    const sharedate = { sterms: this.nterms, srate: this.rate, semi: this.resultEMI, sLoan: this.resultLoan, stax : this.indata.txttax };
     this.shared.setemiDtl(sharedate);
   }
 
